@@ -16,6 +16,13 @@ Directories:
          user: <%= ServerControl::Args->get->{'user'} %>
          group: <%= ServerControl::Args->get->{'group'} %>
 
+   Configuration:
+      conf:
+         name: conf
+         chmod: 755
+         user: <%= ServerControl::Args->get->{'user'} %>
+         group: <%= ServerControl::Args->get->{'group'} %>
+
    Runtime:
       pid:
          name: run

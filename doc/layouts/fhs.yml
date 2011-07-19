@@ -38,11 +38,16 @@ Directories:
 Files:
    Exec:
       drbworker:
-         name: bin/drb-worker--<%= __PACKAGE__->get_name %>
+         name: bin/drb-worker-<%= __PACKAGE__->get_name %>
          link: "../var/data/app/bin/drbworker"
+
+   Configuration:
+      environemnt:
+         name: etc/environment.conf
+         call: <% sub { } %>
 
    Runtime:
       pid:
          name: run/worker.pid
-         call: <%= sub { } %>
+         call: <% sub { } %>
 

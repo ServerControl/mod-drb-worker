@@ -1,0 +1,46 @@
+Directories:
+   Base:
+      bin:
+         name: bin
+         chmod: 755
+         user: root
+         group: root
+      data:
+         name: data
+         chmod: 755
+         user: <%= ServerControl::Args->get->{'user'} %>
+         group: <%= ServerControl::Args->get->{'group'} %>
+      app:
+         name: data/app
+         chmod: 755
+         user: <%= ServerControl::Args->get->{'user'} %>
+         group: <%= ServerControl::Args->get->{'group'} %>
+
+   Runtime:
+      pid:
+         name: run
+         chmod: 755
+         user: <%= ServerControl::Args->get->{'user'} %>
+         group: <%= ServerControl::Args->get->{'group'} %>
+      log:
+         name: logs
+         chmod: 755
+         user: <%= ServerControl::Args->get->{'user'} %>
+         group: <%= ServerControl::Args->get->{'group'} %>
+
+Files:
+   Exec:
+      drbworker:
+         name: bin/drb-worker--<%= __PACKAGE__->get_name %>
+         link: "../data/app/bin/drbworker"
+
+   Configuration:
+      environemnt:
+         name: conf/environment.conf
+         call: <%= sub { } %>
+
+   Runtime:
+      pid:
+         name: run/worker.pid
+         call: <%= sub { } %>
+

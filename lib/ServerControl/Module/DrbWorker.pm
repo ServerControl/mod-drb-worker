@@ -25,7 +25,7 @@ __PACKAGE__->Parameter(
 sub help {
    my ($class) = @_;
 
-   print __PACKAGE__ . " " . $ServerControl::Module::DrbWorker . "\n";
+   print __PACKAGE__ . " " . $ServerControl::Module::DrbWorker::VERSION . "\n";
 
    printf "  %-30s%s\n", "--name=", "Instance Name";
    printf "  %-30s%s\n", "--path=", "The path where the instance should be created";
@@ -45,10 +45,11 @@ sub start {
 
    my ($name, $path)    = ($class->get_name, $class->get_path);
    my $env_conf  = ServerControl::FsLayout->get_file("Configuration", "environment");
-   my $exec_file = ServerControl::FsLayout->get_file("Exec", "DrbWorker");
+   my $exec_file = ServerControl::FsLayout->get_file("Exec", "drbworker");
 
    open(my $conf, "<", $env_conf) or die($!);
    while( my $line = <$conf>) {
+      chomp $line;
       my ($key, $val) = split(/=/, $line, 2);
       $ENV{$key} = $val;
    }

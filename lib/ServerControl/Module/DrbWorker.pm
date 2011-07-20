@@ -9,7 +9,7 @@ package ServerControl::Module::DrbWorker;
 use strict;
 use warnings;
 
-our $VERSION = '0.91';
+our $VERSION = '0.92';
 
 use ServerControl::Module;
 use ServerControl::Commons::Process;

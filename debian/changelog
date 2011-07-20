@@ -1,3 +1,9 @@
+servercontrol-mod-drb-worker (0.92) unstable; urgency=low
+  * fixed reading from environment.conf
+
+ -- Jan Gehring <jan.gehring@gmail.com>  Tue, 19 Jul 2011 08:00:00 +0200
+
+
 servercontrol-mod-drb-worker (0.91) unstable; urgency=low
   * version bump
 
